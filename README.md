@@ -8,7 +8,7 @@
 1. PHP
 1. Lua
 1. Perl
-1. R
+1. Gleam
 1. Go
 1. C#
 1. Java

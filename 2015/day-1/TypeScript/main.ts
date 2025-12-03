@@ -1,11 +1,12 @@
 let currentFloor = 0;
+let basementPosition: number = 1;
 
 const inputString: string = await Bun.file("input.txt").text();
-// const inputString = ")())())";
+// const inputString = ")";
 
 let inputArray = inputString.split("");
 
-inputArray.forEach((element) => {
+inputArray.every((element) => {
   switch (element) {
     case "(":
       currentFloor += 1;
@@ -15,6 +16,11 @@ inputArray.forEach((element) => {
       currentFloor -= 1;
       break;
   }
+  if (currentFloor < 0) {
+    return false;
+  }
+  basementPosition += 1;
+  return true;
 });
 
-console.log(currentFloor);
+console.log(basementPosition);

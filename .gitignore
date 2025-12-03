@@ -1,2 +1,5 @@
 .devcontainer/db.zo
 .devcontainer/.zsh_history
+
+# Prevents inputs of Advent of Code being published
+*.txt

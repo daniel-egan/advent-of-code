@@ -9,3 +9,6 @@ setopt SHARE_HISTORY
 
 # Add aliases
 alias ll='ls -lha'
+
+autoload -Uz compinit
+compinit

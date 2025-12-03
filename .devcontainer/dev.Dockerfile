@@ -13,3 +13,6 @@ RUN echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> ~/.zshrc
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 RUN echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc
 RUN echo 'eval "$(uvx --generate-shell-completion zsh)"' >> ~/.zshrc
+
+# Ruby
+RUN apt-get install -y ruby-full

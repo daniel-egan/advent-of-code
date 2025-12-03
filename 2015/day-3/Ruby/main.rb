@@ -5,7 +5,7 @@ numberOfHouses = 1
 x = 0
 y = 0
 
-empty_table = Array.new
+housesHashMap = {}
 
 splitArray = file.split(//)
 
@@ -14,13 +14,7 @@ for direction in splitArray do
     when "^"
         puts "UP"
         y += 1
-        xAxisArray = empty_table.at(x)
-        if xAxisArray == nil
-            puts "Cannot find an entry at this x axis"
-            empty_table.insert(x)
-        else
-            puts "Found at x value"
-        end
+        housesHashMap[:(x,y)] += 1
     when "<"
         puts "LEFT"
         x -= 1
@@ -32,3 +26,5 @@ for direction in splitArray do
         x += 1
     end
 end
+
+puts housesHashMap

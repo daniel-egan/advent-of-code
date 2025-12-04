@@ -14,8 +14,10 @@ while (true) {
 
     $hash = md5($to_be_hashed);
     $first_five_characters = substr($hash, 0, 5);
+    $first_six_characters = substr($hash, 0, 6);
     // echo $first_five_characters . "\n";
-    if (strcmp($first_five_characters, "00000") == 0) {
+    // if (strcmp($first_five_characters, "00000") == 0) {
+    if (strcmp($first_six_characters, "000000") == 0) {
         // echo "FOUND \n";
         break;
     } else {

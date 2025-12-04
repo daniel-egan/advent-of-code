@@ -16,3 +16,6 @@ RUN echo 'eval "$(uvx --generate-shell-completion zsh)"' >> ~/.zshrc
 
 # Ruby
 RUN apt-get install -y ruby-full
+
+# PHP
+RUN apt install -y php

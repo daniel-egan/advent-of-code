@@ -19,3 +19,6 @@ RUN apt-get install -y ruby-full
 
 # PHP
 RUN apt install -y php
+
+# Lua
+RUN apt install -y lua5.4

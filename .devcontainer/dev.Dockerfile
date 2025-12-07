@@ -22,3 +22,6 @@ RUN apt install -y php
 
 # Lua
 RUN apt install -y lua5.4
+
+# Perl
+RUN apt install -y perl

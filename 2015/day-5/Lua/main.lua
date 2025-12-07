@@ -37,10 +37,14 @@ for line in io.lines(file) do
     --   Check one letter seperation
     for index, char in ipairs(alphabet) do
         local pair = char .. "%l" .. char
-        if string.match(line, pair) then
+        if string.match(line, pair) == nil then
+            goto seperationContinue
+        else
             niceCount = niceCount + 1
             break
         end
+
+        ::seperationContinue::
     end
 
     print(line)

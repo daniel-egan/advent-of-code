@@ -1,37 +1,67 @@
-local file = "day5.txt"
+local file = "temp.txt"
 
 local niceCount = 0
 
 for line in io.lines(file) do
 
-    -- Check bad strings
-    if string.match(line, "ab") then goto continue end
-    if string.match(line, "cd") then goto continue end
-    if string.match(line, "pq") then goto continue end
-    if string.match(line, "xy") then goto continue end
+    -- -- Check bad strings
+    -- if string.match(line, "ab") then goto continue end
+    -- if string.match(line, "cd") then goto continue end
+    -- if string.match(line, "pq") then goto continue end
+    -- if string.match(line, "xy") then goto continue end
 
-    -- Check number of vowels
-    _, numVowels = string.gsub(line, "[aeiou]", "")
-    if numVowels < 3 then goto continue end
+    -- -- Check number of vowels
+    -- _, numVowels = string.gsub(line, "[aeiou]", "")
+    -- if numVowels < 3 then goto continue end
 
-    -- Check double character
-    for i = 1, #line do
-        if i == 1 then goto doubleCharacterContinue end
+    -- -- Check double character
+    -- for i = 1, #line do
+    --     if i == 1 then goto doubleCharacterContinue end
 
-        local currentChar = string.sub(line, i, i)
-        local prevChar = string.sub(line, i - 1, i - 1)
+    --     local currentChar = string.sub(line, i, i)
+    --     local prevChar = string.sub(line, i - 1, i - 1)
 
-        if currentChar == prevChar then
+    --     if currentChar == prevChar then
+    --         niceCount = niceCount + 1
+    --         break
+    --     end
+
+    --     ::doubleCharacterContinue::
+    -- end
+
+    -- print(line)
+
+    local alphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s",
+                      "t", "u", "v", "w", "x", "y", "z"}
+
+    --   Check one letter seperation
+    for index, char in ipairs(alphabet) do
+        local pair = char .. "%l" .. char
+        if string.match(line, pair) then
             niceCount = niceCount + 1
             break
         end
-
-        ::doubleCharacterContinue::
     end
 
-    -- print(line)
+    print(line)
+
+    -- Pair of any two letters
+    local charPairs = {}
+    for i = 2, #line do
+        local firstChar = string.sub(line, i, i)
+        local secondChar = string.sub(line, i - 1, i - 1)
+
+        if charPairs[firstChar .. secondChar] then
+            savedIndex = charPairs[firstChar .. secondChar]
+            if math.abs(savedIndex - i) > 2 then
+                niceCount = niceCount + 1
+                goto continue
+            end
+        end
+        charPairs[firstChar .. secondChar] = i
+    end
 
     ::continue::
 end
 
-print(niceCount)
+-- print(niceCount)

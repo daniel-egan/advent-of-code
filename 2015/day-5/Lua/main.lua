@@ -1,4 +1,4 @@
-local file = "temp.txt"
+local file = "/workspace/advent-of-code_devcontainer/2015/day-5/Lua/temp.txt"
 
 local niceCount = 0
 
@@ -35,29 +35,31 @@ for line in io.lines(file) do
                       "t", "u", "v", "w", "x", "y", "z"}
 
     --   Check one letter seperation
+    seperationSuccess = false
     for index, char in ipairs(alphabet) do
         local pair = char .. "%l" .. char
         if string.match(line, pair) == nil then
             goto seperationContinue
         else
-            niceCount = niceCount + 1
+            seperationSuccess = true
             break
         end
 
         ::seperationContinue::
     end
 
-    print(line)
+    if seperationSuccess == false then goto continue end
 
     -- Pair of any two letters
     local charPairs = {}
     for i = 2, #line do
-        local firstChar = string.sub(line, i, i)
-        local secondChar = string.sub(line, i - 1, i - 1)
+        local firstChar = string.sub(line, i - 1, i - 1)
+        local secondChar = string.sub(line, i, i)
 
         if charPairs[firstChar .. secondChar] then
             savedIndex = charPairs[firstChar .. secondChar]
-            if math.abs(savedIndex - i) > 2 then
+            if math.abs(savedIndex - i) >= 2 then
+                print(line)
                 niceCount = niceCount + 1
                 goto continue
             end
@@ -68,4 +70,4 @@ for line in io.lines(file) do
     ::continue::
 end
 
--- print(niceCount)
+print(niceCount)

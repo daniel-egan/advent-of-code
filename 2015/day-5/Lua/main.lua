@@ -1,4 +1,4 @@
-local file = "/workspace/advent-of-code_devcontainer/2015/day-5/Lua/temp.txt"
+local file = "/workspace/advent-of-code_devcontainer/2015/day-5/Lua/day5.txt"
 
 local niceCount = 0
 
@@ -63,8 +63,9 @@ for line in io.lines(file) do
                 niceCount = niceCount + 1
                 goto continue
             end
+        else
+            charPairs[firstChar .. secondChar] = i
         end
-        charPairs[firstChar .. secondChar] = i
     end
 
     ::continue::

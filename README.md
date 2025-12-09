@@ -23,6 +23,7 @@
    - Good debugging within VSCode
 1. Perl
    - Cannot get debugging to work so having to resort to print statements
+   - Appears that no VSCode formatter works
 1. Gleam
 1. Go
 1. C#

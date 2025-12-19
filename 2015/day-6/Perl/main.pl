@@ -12,8 +12,8 @@ open my $fh, '<', $file or die "Could not open file '$file': $!";
 # 0 means lights are off
 # 1 means lights are on
 my %lights = (
-  '0,0'     => 0,
-  '999,999' => 0
+  # '0,0'     => 0,
+  # '999,999' => 0
 );
 
 my $currentLightCount = 0;
@@ -22,25 +22,22 @@ while (my $line = <$fh>) {
   chomp $line;
   my @lineArray = split ' ', $line;
 
-  my @firstCoords = @lineArray[-3];
-  my @endCoords   = @lineArray[-1];
-
-  for (my $coordElement = 0; $coordElement < 2; $coordElement++) {
-    print "hi $coordElement\n";
-    print @firstCoords[$coordElement];
-  }
+  my @firstCoords = split 'n', @lineArray[-3];
+  my @endCoords   = split 'n', @lineArray[-1];
 
   if ($line =~ /toggle/) {
     print "TOGGLE\n";
-    my $currentLight = $lights{'0,0'};
+    # for x = x1 to x2:
+    for ($x = @firstCoords[0], $x <= )
+    my $currentLight = $lights{};
 
     if ($currentLight == 0) {
-      # turnLightOn('0,0');
+      turnLightOn($currentLight);
     }
     elsif ($currentLight == 1) {
-      # turnLightOff('0,0');
+      turnLightOff($currentLight);
     } else {
-      # turnLightOn('0,0');
+      turnLightOn($currentLight);
     }
   }
   elsif ($line =~ /turn on/) {

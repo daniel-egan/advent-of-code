@@ -24,6 +24,8 @@
 1. Perl
    - Cannot get debugging to work so having to resort to print statements
    - Appears that no VSCode formatter works
+   - Having $,@,% to determine variable types is confusing, something you could get used to but feels very odd at first
+   - This is probably the hardest puzzle so far
 1. Gleam
 1. Go
 1. C#

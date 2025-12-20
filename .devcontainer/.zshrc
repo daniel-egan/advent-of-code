@@ -12,3 +12,7 @@ alias ll='ls -lha'
 
 autoload -Uz compinit
 compinit
+
+# Setting up keybinds
+bindkey '^[[1;5D' backward-word  # Ctrl + Left Arrow
+bindkey '^[[1;5C' forward-word   # Ctrl + Right Arrow

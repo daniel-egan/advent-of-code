@@ -27,6 +27,8 @@
    - Having $,@,% to determine variable types is confusing, something you could get used to but feels very odd at first
    - This is probably the hardest puzzle so far
 1. Gleam
+   - Also doesn't appear there is any debugging solutions for VSCode
+   - Seems like there is no official file input or output, having to use a 3rd party package
 1. Go
 1. C#
 1. Java
